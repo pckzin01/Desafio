@@ -1,0 +1,67 @@
+# Arquivos e pastas gerados pelo Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Pastas de build
+bin/
+obj/
+debug/
+release/
+out/
+
+# Arquivos de dependências e logs temporários
+project.lock.json
+project.fragment.lock.json
+*.log
+
+# Configurações do Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Arquivos gerados por pacotes
+*.nupkg
+*.snupkg
+packages/
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.cache
+*.ilk
+*.lib
+*.log
+*.msi
+*.pyc
+*.pycache
+*.db
+*.sql
+*.ps1
+*.psm1
+
+# Arquivos de migrações do Entity Framework Core
+**/Migrations/*
+
+# Configurações locais de usuários
+appsettings.Development.json
+appsettings.Local.json
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+*.bak
+*.pid
+*.seed
+*.coveragerc
+*.orig
+
+# Arquivos de sistema
+Thumbs.db
+*.DS_Store
+*.icloud
+.idea/
+*.class
+
