@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: 6rem;
+    background-color: #00695e;
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    position: relative;
+}
+
+.logoutButton {
+    all: unset;
+    position: absolute;
+    right: 6rem;
+    transition: 0.3s;
+}
+
+.logoutButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+

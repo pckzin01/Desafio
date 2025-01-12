@@ -4,3 +4,87 @@
     align-items: center;
     position: relative;
 }
+
+.title {
+    margin-bottom: 20px;
+    color: #00695e;
+}
+
+.box {
+    width: 30%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    margin-top: 70px;
+    width: 50rem;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputGroup {
+    margin-bottom: 2rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup input {
+    all: unset;
+    width: 100%;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    height: 2rem;
+    padding: 5px;
+}
+
+.inputGroup select {
+    all: unset;
+    appearance: auto;
+    width: 100%;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    height: 2rem;
+    padding: 5px;
+}
+
+
+.inputGroup input::placeholder {
+    color: #5e5e5e;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+}
+
+.button {
+    all: unset;
+    margin-left: 13px;
+    width: 70%;
+    height: 40px;
+    background-color: #00695e;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #02998a;
+    transform: scale(1.05);
+  }
+  
+  .error {
+    color: red;
+  }
+  
