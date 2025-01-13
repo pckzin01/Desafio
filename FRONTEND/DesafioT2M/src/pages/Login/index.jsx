@@ -25,20 +25,17 @@ export default function Login() {
         "http://localhost:5026/api/auth/login",
         data
       );
-
+  
       if (response.data && response.data.token) {
-        login(response.data.token);
+        login(response.data.token); // Passa o token para o AuthContext
         setErrorMessage("");
         alert("Login bem-sucedido!");
-
-        const decodedToken = jwtDecode(response.data.token);
+  
+        const decodedToken = jwtDecode(response.data.token); // Decodifica para uso local (opcional)
         console.log("Token decodificado:", decodedToken);
-
-        const role =
-          decodedToken[
-            "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-          ];
-
+  
+        const role = decodedToken.role;
+  
         if (role === "Paciente") {
           navigate("/home");
         } else if (role === "Medico") {
@@ -54,6 +51,7 @@ export default function Login() {
       console.error("Erro ao fazer login:", error);
     }
   };
+  
 
   return (
     <main>

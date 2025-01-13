@@ -9,14 +9,15 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 70%;
-    height: 100vh;
     background-color: #ccc;
+    box-shadow: 0px 0px 30px #ccc;
     border-radius: 15px;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .medicoCard {
@@ -29,6 +30,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: 0.3s;
+    position: relative;
+  }
+
+  .medicoCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px #02998a;
   }
   
+  .agendarButton {
+    all: unset;
+    position: absolute;
+    right: 10%;
+    width: 15rem;
+    height: 3rem;
+    background-color: #02998a;
+    color: #fff;
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+  }
+
+  .agendarButton:hover {
+    background-color: #00695e;
+  }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as styles from "../HomeUser/HomeUser.module.css";
 import Header from "../../components/Header";
 import axios from "axios";
@@ -6,6 +7,7 @@ import axios from "axios";
 export default function HomeUser() {
   const [medicos, setMedicos] = useState([]); 
   const [usuarios, setUsuarios] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMedicos = async () => {
@@ -33,6 +35,10 @@ export default function HomeUser() {
     fetchMedicos();
   }, []);
 
+  const handleAgendarConsulta = (medicoId) => {
+    navigate(`/agendar-consulta/${medicoId}`);
+  };
+
   return (
     <main>
       <Header children={<h1>Agende uma consulta!</h1>} />
@@ -42,6 +48,12 @@ export default function HomeUser() {
             <div key={medico.id} className={styles.medicoCard}>
               <h3>Especialidade: {medico.especialidade}</h3>
               <p>Nome: {usuarios[medico.usuarioId] || "Carregando..."}</p>
+              <button 
+                className={styles.agendarButton} 
+                onClick={() => handleAgendarConsulta(medico.id)}
+              >
+                Agendar Consulta
+              </button>
             </div>
           ))}
         </div>
