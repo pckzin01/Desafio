@@ -4,31 +4,25 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(null);
-  const [user, setUser] = useState(null); // Armazena as informações do usuário
+  const [user, setUser] = useState(null);
 
-  // Carrega o token do localStorage ao iniciar a aplicação
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
       setAuthToken(token);
-
-      // Decodifica o token para obter os dados do usuário
       const userData = parseJwt(token);
       setUser(userData);
     }
   }, []);
 
-  // Faz login e armazena o token e as informações do usuário
   const login = (token) => {
     setAuthToken(token);
     localStorage.setItem("authToken", token);
 
-    // Decodifica o token para obter os dados do usuário
     const userData = parseJwt(token);
     setUser(userData);
   };
 
-  // Faz logout e limpa os dados
   const logout = () => {
     setAuthToken(null);
     setUser(null);
@@ -42,7 +36,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Função para decodificar JWT
 function parseJwt(token) {
   try {
     const base64Url = token.split(".")[1];

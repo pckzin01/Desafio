@@ -57,3 +57,39 @@
     background-color: #00695e;
   }
 
+.headerContainer {
+  position: relative;
+}
+
+.AppointmentButton {
+  all: unset;
+  position: absolute;
+  width: 20rem;
+  height: 3rem;
+  top: 0;
+  left: 100px;
+  margin-top: 20px;
+  background-color: #fff;
+  color: #00695e;
+  border-radius: 5px;    
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  border: 3px solid #fff;
+}
+
+.AppointmentButton:hover {
+  background-color: #00695e;
+  color: #fff;
+  border: 3px solid #fff;
+  transform: scale(1.02);
+}
+
+.AppointmentButton:active {
+  transform: scale(1);
+}
+
+.title {
+  margin-right: 40rem;
+  padding: 20px;
+}

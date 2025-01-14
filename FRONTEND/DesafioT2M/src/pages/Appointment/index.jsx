@@ -1,24 +1,24 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import * as styles from '../Appointment/Appointment.module.css';
 import { AuthContext } from '../../context/AuthContext';
 
 export default function Appointment() {
-  const { medicoId } = useParams(); // Obtém o ID do médico da URL
-  const { user } = useContext(AuthContext); // Obtém os dados do usuário autenticado
-  const { register, handleSubmit, formState: { errors } } = useForm(); // Hook do React Hook Form
-  const [pacienteId, setPacienteId] = useState(null); // Armazena o ID do paciente
+  const navigate = useNavigate();
+  const { medicoId } = useParams();
+  const { user } = useContext(AuthContext);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [pacienteId, setPacienteId] = useState(null);
   const [mensagem, setMensagem] = useState(null);
-  const [loading, setLoading] = useState(true); // Controla o estado de carregamento
+  const [loading, setLoading] = useState(true);
 
-  // Função para buscar o pacienteId com base no nameid do JWT
   useEffect(() => {
     console.log('User:', user);
 
     if (!user || !user.nameid) {
-      setMensagem('Usuário não autenticado.');
+      setMensagem('');
       setLoading(false);
       return;
     }
@@ -49,31 +49,31 @@ export default function Appointment() {
       setMensagem('Não foi possível identificar o paciente.');
       return;
     }
-
+  
     const consultaData = {
-      pacienteId, // ID do paciente obtido no useEffect
-      medicoId: parseInt(medicoId, 10), // ID do médico vindo da URL
-      dataHora: data.dataHora, // Data e hora do formulário
-      status: 0, // Status fixo
-      observacoes: data.observacoes, // Observações do formulário
+      pacienteId,
+      medicoId: parseInt(medicoId, 10),
+      dataHora: data.dataHora,
+      status: 1,
+      observacoes: data.observacoes,
     };
-
+  
     try {
       const response = await axios.post('http://localhost:5026/api/consulta', consultaData);
       setMensagem('Consulta agendada com sucesso!');
       console.log('Consulta agendada:', response.data);
+  
+      navigate('/minhas-consultas');
     } catch (error) {
       console.error('Erro ao agendar consulta:', error);
       setMensagem('Erro ao agendar consulta. Tente novamente.');
     }
   };
 
-  // Exibe um carregamento enquanto os dados não estão disponíveis
   if (loading) {
     return <p>Carregando...</p>;
   }
 
-  // Se o usuário não estiver autenticado ou pacienteId não for encontrado
   if (!user || !user.nameid || !pacienteId) {
     return <p>{mensagem || 'Erro ao carregar informações do usuário.'}</p>;
   }
@@ -81,7 +81,7 @@ export default function Appointment() {
   return (
     <main>
       <div className={styles.container}>
-        <h1>Agendamentos</h1>
+        <h1 className={styles.title}>Agendamento</h1>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <label>
             <h3>Data e Hora:</h3>

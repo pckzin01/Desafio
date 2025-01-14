@@ -25,17 +25,17 @@ export default function Login() {
         "http://localhost:5026/api/auth/login",
         data
       );
-  
+
       if (response.data && response.data.token) {
-        login(response.data.token); // Passa o token para o AuthContext
+        login(response.data.token);
         setErrorMessage("");
         alert("Login bem-sucedido!");
-  
-        const decodedToken = jwtDecode(response.data.token); // Decodifica para uso local (opcional)
+
+        const decodedToken = jwtDecode(response.data.token);
         console.log("Token decodificado:", decodedToken);
-  
+
         const role = decodedToken.role;
-  
+
         if (role === "Paciente") {
           navigate("/home");
         } else if (role === "Medico") {
@@ -51,7 +51,6 @@ export default function Login() {
       console.error("Erro ao fazer login:", error);
     }
   };
-  
 
   return (
     <main>
@@ -106,10 +105,8 @@ export default function Login() {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
-                {errors.password && (
-                  <span className={styles.error}>
-                    {errors.password.message}
-                  </span>
+                {errors.senha && (
+                  <span className={styles.error}>{errors.senha.message}</span>
                 )}
               </div>
 

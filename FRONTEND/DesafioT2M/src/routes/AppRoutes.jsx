@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import HomeDoctor from "../pages/HomeDoctor";
 import Appointment from "../pages/Appointment";
+import MyAppointment from "../pages/MyAppointment";
 
 function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ function AppRoutes() {
         <Route path="/" element={<Login />} />
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/agendar-consulta/:medicoId" element={<Appointment />} />
+        <Route path="/minhas-consultas" element={<MyAppointment />} />
       </Routes>
   );
 }

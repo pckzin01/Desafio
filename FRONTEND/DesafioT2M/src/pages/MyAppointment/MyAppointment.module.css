@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+    background-color: #e6e6e6;
+    box-shadow: 0px 0px 25px #bbb;
+    border-radius: 15px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.itemCard {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    width: 130%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+    position: relative;
+    margin-left: -60px;
+}
+
+.itemCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px #00695e;
+}
+
+.actionButton {
+    all: unset;
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.actionButton:hover {
+    transform: scale(1.05);
+    background-color: #c60000;
+}
+
+.cancelada {
+    color: red;
+    font-weight: bold;
+  }
+
+  .ativa {
+    color: black;
+  }
+  
+  .realizada {
+    color: green;
+    font-weight: bold;
+  }
+  

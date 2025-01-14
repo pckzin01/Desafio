@@ -39,11 +39,24 @@ export default function HomeUser() {
     navigate(`/agendar-consulta/${medicoId}`);
   };
 
+  const handleMinhasConsultas = () => {
+    navigate("/minhas-consultas");
+  };
+
   return (
     <main>
-      <Header children={<h1>Agende uma consulta!</h1>} />
+      <div className={styles.headerContainer}>
+        <Header children={<h1>Agende uma consulta!</h1>} />
+        <button 
+          className={styles.AppointmentButton} 
+          onClick={handleMinhasConsultas}
+        >
+          <h3>Minhas consultas</h3>
+        </button>
+      </div>
       <div className={styles.container}>
         <div className={styles.box}>
+          <h2 className={styles.title}>Selecione um Médico:</h2>
           {medicos.map((medico) => (
             <div key={medico.id} className={styles.medicoCard}>
               <h3>Especialidade: {medico.especialidade}</h3>
