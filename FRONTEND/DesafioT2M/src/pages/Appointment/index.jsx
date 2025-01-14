@@ -16,19 +16,21 @@ export default function Appointment() {
 
   useEffect(() => {
     console.log('User:', user);
-
+  
     if (!user || !user.nameid) {
-      setMensagem('');
+      setMensagem('Usuário não autenticado.');
       setLoading(false);
       return;
     }
-
+  
     const fetchPacienteId = async () => {
       try {
         const response = await axios.get('http://localhost:5026/api/paciente');
+        console.log('Pacientes encontrados:', response.data);
         const paciente = response.data.find(p => p.usuarioId === parseInt(user.nameid, 10));
-
+  
         if (paciente) {
+          console.log('Paciente encontrado:', paciente);
           setPacienteId(paciente.id);
         } else {
           setMensagem('Paciente não encontrado para o usuário atual.');
@@ -40,10 +42,10 @@ export default function Appointment() {
         setLoading(false);
       }
     };
-
+  
     fetchPacienteId();
   }, [user]);
-
+  
   const onSubmit = async (data) => {
     if (!pacienteId) {
       setMensagem('Não foi possível identificar o paciente.');
@@ -69,6 +71,7 @@ export default function Appointment() {
       setMensagem('Erro ao agendar consulta. Tente novamente.');
     }
   };
+  
 
   if (loading) {
     return <p>Carregando...</p>;

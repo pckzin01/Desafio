@@ -40,7 +40,11 @@ export default function Login() {
           navigate("/home");
         } else if (role === "Medico") {
           navigate("/home-medico");
-        } else {
+        }
+        else if (role === "Administrador") {
+          navigate("/admin");
+        }
+        else {
           alert("Role não reconhecida.");
         }
       } else {
