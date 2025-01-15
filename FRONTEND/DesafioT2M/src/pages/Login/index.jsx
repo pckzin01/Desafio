@@ -30,9 +30,8 @@ export default function Login() {
         login(response.data.token);
         setErrorMessage("");
         alert("Login bem-sucedido!");
-
+        
         const decodedToken = jwtDecode(response.data.token);
-        console.log("Token decodificado:", decodedToken);
 
         const role = decodedToken.role;
 
@@ -40,11 +39,9 @@ export default function Login() {
           navigate("/home");
         } else if (role === "Medico") {
           navigate("/home-medico");
-        }
-        else if (role === "Administrador") {
+        } else if (role === "Administrador") {
           navigate("/admin");
-        }
-        else {
+        } else {
           alert("Role não reconhecida.");
         }
       } else {

@@ -93,21 +93,21 @@ export default function Register() {
         alert(`Erro ao cadastrar: ${error.message || error}`);
       }
 
-      try {
-        if (usuarioResponse?.data?.id) {
-          await axios.delete(
-            `http://localhost:5026/api/usuario/${usuarioResponse.data.id}`
-          );
-          console.log(
-            `Usuário ${usuarioResponse.data.id} deletado devido a erro.`
-          );
-        }
-      } catch (deleteError) {
-        console.error(
-          "Erro ao deletar usuário após falha:",
-          deleteError.response?.data || deleteError
-        );
-      }
+      // try {
+      //   if (usuarioResponse?.data?.id) {
+      //     await axios.delete(
+      //       `http://localhost:5026/api/usuario/${usuarioResponse.data.id}`
+      //     );
+      //     console.log(
+      //       `Usuário ${usuarioResponse.data.id} deletado devido a erro.`
+      //     );
+      //   }
+      // } catch (deleteError) {
+      //   console.error(
+      //     "Erro ao deletar usuário após falha:",
+      //     deleteError.response?.data || deleteError
+      //   );
+      // }
     }
   };
 

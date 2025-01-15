@@ -15,8 +15,6 @@ export default function Appointment() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('User:', user);
-  
     if (!user || !user.nameid) {
       setMensagem('Usuário não autenticado.');
       setLoading(false);
@@ -62,9 +60,7 @@ export default function Appointment() {
   
     try {
       const response = await axios.post('http://localhost:5026/api/consulta', consultaData);
-      setMensagem('Consulta agendada com sucesso!');
-      console.log('Consulta agendada:', response.data);
-  
+      setMensagem('Consulta agendada com sucesso!');  
       navigate('/minhas-consultas');
     } catch (error) {
       console.error('Erro ao agendar consulta:', error);
