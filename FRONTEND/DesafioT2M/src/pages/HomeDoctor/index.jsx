@@ -167,7 +167,6 @@ export default function HomeDoctor() {
       alert("Erro ao deletar consulta. Tente novamente.");
     }
   };
-  
 
   if (loading) {
     return <p>Carregando...</p>;
